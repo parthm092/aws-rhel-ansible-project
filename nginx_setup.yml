@@ -1,0 +1,39 @@
+- name: Install & configure nginx on webservers
+  hosts: webservers
+  tasks:
+    - name: install nginx
+      dnf:
+        name: nginx
+        state: present
+
+    - name: create custom index page
+      copy:
+        content:
+           <html>
+           <body style="text-align:center; margin-top:100px; font-family:Arial;">
+           <h1>Hello from {{ ansible_hostname }}</h1>
+           <p>Deployed by Parth Mistri using Ansible on AWS RHEL 9</p>
+           </body>
+           </html>
+        dest: /usr/share/nginx/html/index.html
+    
+    - name: start and enable nginx service
+      service:
+        name:  nginx
+        state: started
+        enabled: yes
+
+    - name: Ensure firewalld Python bindings are installed
+      dnf:
+        name: python3-firewall
+        state: present
+
+    - name: open firewall for http
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+        immediate: yes
+
+          
+
