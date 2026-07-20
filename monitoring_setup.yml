@@ -1,0 +1,5 @@
+---
+- name: Install node_exporter on web servers
+  hosts: webservers
+  roles:
+    - node_exporter
