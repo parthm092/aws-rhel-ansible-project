@@ -1,3 +1,15 @@
+## Monitoring Stack (Added)
+- Automated node_exporter installation via Ansible role across web servers
+- Prometheus server scraping metrics from all nodes
+- Grafana dashboards visualizing real-time CPU, Memory, Disk, Network
+- Debugged real issues: SELinux context mismatch on /opt/, binary 
+  extraction corruption (unarchive module), AWS Security Group 
+  port restrictions, IP changes after instance reboot
+
+## Additional Skills Demonstrated
+Prometheus, Grafana, node_exporter, SELinux troubleshooting 
+(restorecon), systemd service debugging, dashboard configuration
+
 # AWS RHEL 9 Infrastructure Automation with Ansible
 
 ## Architecture
